@@ -47,3 +47,32 @@ def post_user():
     db.session.commit()
     return jsonify(user_created.serialize()), 200
 
+# INICIAR SESION
+@api.route('/login', methods=['POST'])
+def login():
+    user = request.get_json()
+
+    if not isinstance(user['email'], str) or len(user['email'].strip()) == 0:
+         return({'error':'"email" must be a string'}), 400
+    if not isinstance(user['password'], str) or len(user['password'].strip()) == 0:
+         return({'error':'"password" must be a string'}), 400
+
+    user_db = User.query.filter_by(email=user['email'], password=user['password']).first()
+    if user_db is None:
+        return jsonify({"error":"incorrect credentials"}), 401
+    
+    access_token = create_access_token(identity=user['email'])
+    return jsonify({"access_token":access_token, "logged":True}), 200
+
+# VALIDAR TOKEN
+@api.route("/valid-token", methods=["GET"])
+@jwt_required()
+def valid_token():
+    # Access the identity of the current user with get_jwt_identity
+    current_user = get_jwt_identity()
+    
+    user_exist = User.query.filter_by(email=current_user).first()
+    if user_exist is None:
+        return jsonify(logged=False), 404
+
+    return jsonify(logged=True), 200
