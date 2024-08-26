@@ -27,9 +27,7 @@ export const HomeBanner = () => {
                                 </div>
 
                                 <p className="hidden text-gray-500 md:mt-4 md:block">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam
-                                    sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
-                                    quisque ut interdum tincidunt duis.
+                                    Ya sea que quieras ganar masa muscular, perder peso, o simplemente mantener un estilo de vida saludable, GymTrack está aquí para ayudarte en cada paso del camino. Regístrate ahora y empieza a transformar tu rutina de ejercicio en un plan efectivo y motivador.
                                 </p>
 
                                 <div className="mb-0 md:mt-8 flex gap-2">
@@ -53,17 +51,15 @@ export const HomeBanner = () => {
                                 </div>
 
                                 <p className="hidden text-gray-500 md:mt-4 md:block">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam
-                                    sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
-                                    quisque ut interdum tincidunt duis.
+                                    Sigue adelante con tu plan personalizado para alcanzar tus metas, ya sea ganar masa muscular, perder peso, o mantener un estilo de vida saludable. Continúa transformando tu rutina en un plan efectivo y motivador con las herramientas que necesitas, justo aquí, a tu alcance.
                                 </p>
 
                                 <div className="mb-0 md:mt-8 flex gap-2">
                                     <Link
-                                        to="./dashboard"
+                                        to="./routine"
                                         className="flex items-center rounded border border-emerald-600 px-8 py-3 text-sm font-medium text-emerald-400 hover:bg-emerald-600 hover:text-neutral-900 focus:outline-none active:bg-emerald-500 transition-all duration-100 ease-in"
                                     >
-                                        Ir a Dashboard
+                                        Ir a Mi rutina
                                     </Link>
                                     <Link
                                         to="./stats"

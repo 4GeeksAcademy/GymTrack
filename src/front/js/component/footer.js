@@ -37,14 +37,12 @@ export const Footer = () => {
 				<div className="lg:flex lg:items-end lg:justify-between">
 					<div>
 						<div className="flex justify-center items-center text-teal-600 lg:justify-start">
-						<LogoGymtrack logoSize="large" />
+							<LogoGymtrack logoSize="large" />
 
 						</div>
 
 						<p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-neutral-500 lg:text-left">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa
-							cum itaque neque.
-						</p>
+							GymTrack es tu aliado en cada paso de tu camino hacia un estilo de vida más saludable. Nos dedicamos a ofrecerte herramientas personalizadas y un soporte continuo para que puedas alcanzar tus objetivos de fitness con confianza y motivación.						</p>
 					</div>
 
 					<ul

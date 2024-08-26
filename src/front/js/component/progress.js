@@ -6,7 +6,7 @@ export const Progress = ({ percentage }) => {
 
     return (
         <div className="flex flex-col items-center justify-center gap-4 pb-11">
-            <h1 className="text-neutral-50 mx-auto w-max text-2xl">Tu progreso</h1>
+            <h3 className="text-neutral-50 mx-auto w-max text-md">Tu progreso</h3>
             <div className="w-[200px]
             ">
                 <CircularProgressbar value={percentage}
@@ -19,9 +19,9 @@ export const Progress = ({ percentage }) => {
 
                         pathTransitionDuration: 0.1,
 
-                        pathColor: `rgba(14,165,233, ${percentage})`,
-                        textColor: '#0ea5e9',
-                        trailColor: '#262626',
+                        pathColor: `rgba(16, 185, 129, ${percentage})`,
+                        textColor: '#10b981',
+                        trailColor: '#404040',
                         backgroundColor: '#0a0a0a',
                     })} />
             </div>

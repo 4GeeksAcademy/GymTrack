@@ -599,7 +599,7 @@ const MultiStepForm = () => {
   )
 }
 
-export const Demo = () => {
+export const CreateRoutine = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-neutral-900">
       <MultiStepForm />

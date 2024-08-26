@@ -6,6 +6,7 @@ import ProfileIcon from "../component/profileIcon";
 import "react-toastify/dist/ReactToastify.css"
 import { toast } from "react-toastify";
 import { Badge } from "../component/badge";
+import { CloseIcon } from "../component/icons";
 
 export const Profile = () => {
   const { store, actions } = useContext(Context)
@@ -152,7 +153,7 @@ export const Profile = () => {
                     <span className="sr-only">Loading...</span>
                   </div>
                 </>
-                : new Date(store.currentUser.user.birthday).toLocaleDateString("en-GB", {
+                : new Date(store.currentUser.user.birthday).toLocaleDateString("es-UY", {
                   day: "2-digit",
                   month: "short",
                   year: "numeric"
@@ -162,15 +163,16 @@ export const Profile = () => {
         </div>
         <div className="grid gap-1">
           <div className="text-xs font-bold  text-neutral-400">Sexo</div>
-          <div className="text-lg">{!store.currentUser
-            ? <>
+          <div className="text-lg">
+            {!store.currentUser ? (
               <div role="status" className="max-w-sm animate-pulse">
                 <div className="h-6 bg-neutral-200 rounded-full dark:bg-neutral-700 w-32 mt-3"></div>
                 <span className="sr-only">Loading...</span>
               </div>
-            </>
-            : store.currentUser.user.sex
-          }</div>
+            ) : store.currentUser.user.sex === 'male' ? 'Masculino'
+              : store.currentUser.user.sex === 'female' ? 'Femenino'
+                : 'Desconocido'}
+          </div>
         </div>
         <div className="grid gap-1">
           <div className="text-xs font-bold  text-neutral-400">Peso</div>
@@ -220,10 +222,7 @@ export const Profile = () => {
                   onClick={() => setIsPopoverHover(false)}
                   className="text-neutral-400 bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-white"
                 >
-                  <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                  </svg>
-                  <span className="sr-only">Close modal</span>
+                  <CloseIcon />
                 </button>
               </div>
               <div className="px-3 py-2">
@@ -324,9 +323,7 @@ export const Profile = () => {
                   Eliminar cuenta permanentemente
                 </h3>
                 <button type="button" onClick={() => setIsDeleteModalOpen(false)} className="text-neutral-400 bg-transparent hover:bg-neutral-200 hover:text-neutral-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-white">
-                  <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                  </svg>
+                  <CloseIcon />
                   <span className="sr-only">Close modal</span>
                 </button>
               </div>
@@ -369,12 +366,12 @@ export const Profile = () => {
                   <div className="w-full">
                     <label htmlFor="weight" className="block mb-1 text-sm font-medium text-neutral-900 dark:text-white">Peso (kg)</label>
                     <input value={userData.weight}
-                      onChange={handleChange} type="number" name="weight" id="weight" className="bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-neutral-600 dark:border-neutral-500 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 focus:ring-emerald-500 focus:border-emerald-500" placeholder="76,8" required />
+                      onChange={handleChange} type="number" name="weight" id="weight" className="bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-neutral-600 dark:border-neutral-500 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 focus:ring-emerald-500 focus:border-emerald-500" placeholder="76,8" required min={0} max={500} />
                   </div>
                   <div className="w-full">
                     <label htmlFor="height" className="block mb-1 text-sm font-medium text-neutral-900 dark:text-white">Altura (cm)</label>
                     <input value={userData.height}
-                      onChange={handleChange} type="number" name="height" id="height" className="bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-neutral-600 dark:border-neutral-500 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 focus:ring-emerald-500 focus:border-emerald-500" placeholder="178 cm" required />
+                      onChange={handleChange} type="number" name="height" id="height" className="bg-neutral-50 border border-neutral-300 text-neutral-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-neutral-600 dark:border-neutral-500 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 focus:ring-emerald-500 focus:border-emerald-500" placeholder="178 cm" required min={0} max={250} />
                   </div>
                 </div>
                 <div className="col-span-6 sm:col-span-3">

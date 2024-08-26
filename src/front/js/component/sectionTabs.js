@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export const SectionTabs = () => {
 	// Cambiar acá para poner cual de todos es el principal
-	const [activeTab, setActiveTab] = useState('Settings');
+	const [activeTab, setActiveTab] = useState('Routines');
 
 	const handleTabChange = (e) => {
 		setActiveTab(e.target.value);
@@ -21,7 +21,7 @@ export const SectionTabs = () => {
 
 
 		switch (activeTab) {
-			case 'Settings':
+			case 'Routines':
 				return (
 					<div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16  animate__animated animate__fadeIn">
 						<div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
@@ -32,21 +32,21 @@ export const SectionTabs = () => {
 							/>
 						</div>
 						<div className="lg:py-24 flex flex-col items-center md:items-start">
-							<h2 className="text-3xl font-bold sm:text-4xl text-neutral-50">Settings</h2>
+							<h2 className="text-3xl font-bold sm:text-4xl text-neutral-50">Rutinas</h2>
 							<p className="mt-4 text-neutral-200">
-								Settings Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam veniam sed recusandae!
+								Consulta una visión general de tu día, con un resumen de tus rutinas, y progreso hacia tus objetivos. Todo en un solo lugar para comenzar tu día con el pie derecho.
 							</p>
 							<a
 								onClick={(e) => handleSectionClick(e)}
 								href="#"
 								className="mt-8 inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-emerald-400"
 							>
-								Update Settings
+								Ver Rutinas
 							</a>
 						</div>
 					</div>
 				);
-			case 'Messages':
+			case 'Stats':
 				return (
 					<div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16  animate__animated animate__fadeIn">
 						<div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
@@ -57,16 +57,16 @@ export const SectionTabs = () => {
 							/>
 						</div>
 						<div className="lg:py-24 flex flex-col items-center md:items-start">
-							<h2 className="text-3xl font-bold sm:text-4xl text-neutral-50">Messages</h2>
+							<h2 className="text-3xl font-bold sm:text-4xl text-neutral-50">Estadísticas</h2>
 							<p className="mt-4 text-neutral-200">
-								Messages Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam veniam sed recusandae!
+								Revisa un resumen de tu progreso, con mejoras en fuerza, resistencia y composición corporal, para ver claramente cómo has avanzado desde el inicio.
 							</p>
 							<a
 								onClick={(e) => handleSectionClick(e)}
 								href="#"
 								className="mt-8 inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-emerald-400"
 							>
-								View Messages
+								Ver Estadísticas
 							</a>
 						</div>
 					</div>
@@ -132,24 +132,24 @@ export const SectionTabs = () => {
 					<nav className="-mb-px flex gap-6 flex-wrap justify-center md:justify-start md:flex-nowrap" aria-label="Tabs">
 						<a
 							href="#"
-							onClick={(e) => handleTabClick(e, 'Settings')}
-							className={`w-2/5 text-center md:text-start md:w-auto shrink-0 border-b-2 px-1 pb-4 text-sm font-medium transition-all ${activeTab === 'Settings'
+							onClick={(e) => handleTabClick(e, 'Routines')}
+							className={`w-2/5 text-center md:text-start md:w-auto shrink-0 border-b-2 px-1 pb-4 text-sm font-medium transition-all ${activeTab === 'Routines'
 								? 'border-emerald-500 text-neutral-200'
 								: 'border-transparent text-emerald-500 hover:border-emerald-300 hover:text-emerald-700'
 								}`}
 						>
-							Settings
+							Rutinas
 						</a>
 
 						<a
 							href="#"
-							onClick={(e) => handleTabClick(e, 'Messages')}
-							className={`w-2/5 text-center md:text-start md:w-auto shrink-0 border-b-2 px-1 pb-4 text-sm font-medium transition-all ${activeTab === 'Messages'
+							onClick={(e) => handleTabClick(e, 'Stats')}
+							className={`w-2/5 text-center md:text-start md:w-auto shrink-0 border-b-2 px-1 pb-4 text-sm font-medium transition-all ${activeTab === 'Stats'
 								? 'border-emerald-500 text-neutral-200'
 								: 'border-transparent text-emerald-500 hover:border-emerald-300 hover:text-emerald-700'
 								}`}
 						>
-							Messages
+							Estadísticas
 						</a>
 
 						<a

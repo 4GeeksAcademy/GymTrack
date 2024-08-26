@@ -5,3 +5,6 @@ arreglar vista que no muestra nada en dashboard (si está vacio mostrar mensaje)
 
 si el perfil está vacío, pedir datos de peso y altura
 
+Cambiar dashboard a "Mi rutina"
+
+Arreglar perfil para que aparezca "masculino, femenino" ✔️

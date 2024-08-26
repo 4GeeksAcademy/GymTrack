@@ -40,47 +40,51 @@ export const ExercisesList = ({ weeklyRoutine }) => {
   }, [done, total]);
 
   useEffect(() => {
-    console.log("done:",done);
-    
+    console.log("done:", done);
+
   }, [done]);
 
 
   return (
     <>
-      <div>
-        <p className="font-bold text-white text-center">{weeklyRoutine.day}</p>
-      </div>
-      <ul className="bg-neutral-900 p-3 space-y-3">
+      <div className="flex flex-col w-full gap-6">
+        <div >
+          <p className="font-bold text-lg md:text-xl text-white text-center">{weeklyRoutine.routine.name.toUpperCase()} | {weeklyRoutine.day}</p>
+        </div>
+        <div className="flex flex-col md:flex-row md:items-center lg:w-2/3 justify-center gap-4 mx-auto w-[80%]">
 
-        {weeklyRoutine.routine.exercises.map((item, index) => {
-          return (
-            < label
-              key={index}
-              htmlFor={`option ${index}`}
-              className="flex items-center cursor-pointer gap-4 rounded-lg border p-4 transition border-gray-700 bg-gradient-to-r from-neutral-800 to-neutral-900"
-            >
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  checked={item.exercise.done}
-                  className="myCheckbox size-4 rounded border-gray-300 bg-gray-800 ring-offset-gray-900"
-                  id={`option ${index}`}
-                  name="name"
-                  onChange={(e) => {
-                    item.exercise.done = !item.exercise.done
-                    handleChange(e, item.exercise.id)
-                  }}
-                />
-                {/* {`option ${index}` == false ? setDone(done + 1) : null} */}
-              </div>
-              <div>
-                <p className="font-medium text-white">{item.exercise.name}</p>
-              </div>
-            </label>
-          )
-        })}
-      </ul >
-      <Progress percentage={percentage} />
+          <div className="lg:w-2/3 space-y-3 rounded-lg h-96 overflow-y-scroll pr-4">
+            {weeklyRoutine.routine.exercises.map((item, index) => {
+              return (
+                < label
+                  key={index}
+                  htmlFor={`option ${index}`}
+                  className="flex items-center cursor-pointer gap-4 rounded-lg border p-4 transition border-emerald-700 bg-neutral-700 "
+                >
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={item.exercise.done}
+                      className="myCheckbox size-4 rounded border-emerald-300 bg-gray-800 ring-offset-emerald-900"
+                      id={`option ${index}`}
+                      name="name"
+                      onChange={(e) => {
+                        item.exercise.done = !item.exercise.done
+                        handleChange(e, item.exercise.id)
+                      }}
+                    />
+                    {/* {`option ${index}` == false ? setDone(done + 1) : null} */}
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">{item.exercise.name}</p>
+                  </div>
+                </label>
+              )
+            })}
+          </div >
+          <Progress percentage={percentage} />
+        </div>
+      </div >
     </>
   );
 };
